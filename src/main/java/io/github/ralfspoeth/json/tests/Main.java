@@ -1,6 +1,5 @@
 package io.github.ralfspoeth.json.tests;
 
-import io.github.ralfspoeth.json.conv.StandardConversions;
 import io.github.ralfspoeth.json.io.JsonReader;
 
 import java.io.IOException;
@@ -9,10 +8,13 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 
 
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
+        gene();
+        /*
         figi();
 
         var src = """
@@ -20,7 +22,7 @@ public class Main {
                 """;
         var root = JsonReader.readElement(src);
         var abc = StandardConversions.as(ABC.class, root);
-        System.out.println(abc);
+        System.out.println(abc);*/
     }
 
     static void figi() throws IOException, InterruptedException {
@@ -41,6 +43,11 @@ public class Main {
             }
 
         }
+    }
+
+    static void gene() {
+        var strings = List.of("one", "two", "three");
+        System.out.printf("Class: %s, generic interfaces: %s%n", strings.getClass(), strings.getClass().getGenericInterfaces());
     }
 
 }
